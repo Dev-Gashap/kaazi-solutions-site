@@ -1248,12 +1248,12 @@
       position: relative;
       display: flex;
       align-items: flex-end;
-      min-height: 380px;
+      min-height: 440px;
       margin-bottom: 72px;
       overflow: hidden;
       background: var(--bg);
     }
-    @media (min-width: 900px) { .band { min-height: 500px; } }
+    @media (min-width: 900px) { .band { min-height: 660px; } }
     .band-img {
       position: absolute;
       inset: 0;
@@ -1317,6 +1317,28 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-soft);
+    }
+
+    /* ─── Statement strip (same photo, different frame) ─── */
+    .strip {
+      min-height: 230px;
+      margin-bottom: 0;
+      align-items: center;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    @media (min-width: 900px) { .strip { min-height: 300px; } }
+    /* framed on the corridor and its reflections, not the racks */
+    .strip .band-img { object-position: 46% 60%; }
+    .strip .band-copy { padding: 44px 0; }
+    .strip-line {
+      margin: 0;
+      max-width: 22ch;
+      font-size: clamp(21px, 3.1vw, 34px);
+      font-weight: 500;
+      letter-spacing: -0.022em;
+      line-height: 1.24;
+      color: var(--text);
     }
 
   </style>
@@ -1731,6 +1753,22 @@
           <span class="label">Scope</span>
           <span class="val">Plan · Deliver · Manage</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATEMENT STRIP ────────────────────────── -->
+  <section class="band strip" aria-label="KAazi builds and manages the infrastructure behind AI.">
+    <picture>
+      <source type="image/webp"
+              srcset="images/datahall-800.webp 800w, images/datahall-1200.webp 1200w, images/datahall-1672.webp 1672w"
+              sizes="100vw" />
+      <img class="band-img" src="images/datahall-1200.jpg" alt="" aria-hidden="true"
+           width="1672" height="941" loading="lazy" decoding="async" />
+    </picture>
+    <div class="band-copy">
+      <div class="wrap">
+        <p class="strip-line">KAazi builds and manages the infrastructure behind AI.</p>
       </div>
     </div>
   </section>
