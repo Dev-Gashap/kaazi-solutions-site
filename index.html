@@ -753,6 +753,12 @@
     }
     .faq details[open] summary::after { content: "−"; }
     .faq p { margin-top: 16px; color: var(--text-soft); font-size: 15px; line-height: 1.65; max-width: 680px; }
+    .faq p a {
+      color: var(--text);
+      border-bottom: 1px solid var(--rule-strong);
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .faq p a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
     /* ─── Contact ────────────────────────────────────────── */
     .contact-grid {
@@ -1097,6 +1103,52 @@
     .field select:invalid { color: var(--text-dim); }
     .field select option { background: var(--bg-elev); color: var(--text); }
 
+    /* ─── Design partner program ─────────────────── */
+    .partner {
+      margin-top: 76px;
+      border: 1px solid var(--rule-mid);
+      background: var(--bg-elev);
+      padding: 40px 32px;
+    }
+    @media (min-width: 800px) { .partner { padding: 56px 48px; } }
+    .partner-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .partner-title {
+      margin-top: 16px;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    @media (min-width: 800px) { .partner-title { font-size: 34px; } }
+    .partner-lede {
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-soft);
+      max-width: 640px;
+    }
+    .partner-cols {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    @media (min-width: 700px) { .partner-cols { grid-template-columns: repeat(2, 1fr); gap: 56px; } }
+    .partner-col-key {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .partner .card-list { flex-grow: 0; }
+    .partner-cta { margin-top: 40px; }
+
   </style>
 </head>
 <body>
@@ -1127,7 +1179,7 @@
         <a href="#solutions">Solutions</a>
         <a href="#lifecycle">How It Works</a>
         <a href="#vision">Vision</a>
-        <a href="#team">Company</a>
+        <a href="#faq">FAQ</a>
       </div>
       <a href="#contact" class="nav-cta">Talk to KAazi</a>
       <button type="button" id="mob-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-controls="mobmenu" aria-expanded="false">
@@ -1141,7 +1193,7 @@
         <a href="#solutions">Solutions</a>
         <a href="#lifecycle">How It Works</a>
         <a href="#vision">Vision</a>
-        <a href="#team">Company</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Talk to KAazi →</a>
       </div>
     </div>
@@ -1719,6 +1771,35 @@
         </div>
       </div>
       <p class="sheet-cap">Illustrative record — product concept, not a live asset.</p>
+
+      <div id="partner" class="partner">
+        <div class="partner-label mono">Design partner program &nbsp;·&nbsp; open</div>
+        <h3 class="partner-title">Help shape what gets built.</h3>
+        <p class="partner-lede">The platform is in development, and we would rather build it against real estates than assumptions. We are taking on a small number of design partners — free, for the duration of the program.</p>
+
+        <div class="partner-cols">
+          <div>
+            <div class="partner-col-key mono">What you get</div>
+            <ul class="card-list">
+              <li>Direct influence over the roadmap and the data model</li>
+              <li>Early access as capabilities ship, at no cost</li>
+              <li>Hands-on help onboarding your estate into the platform</li>
+              <li>Preferential terms when the program ends</li>
+            </ul>
+          </div>
+          <div>
+            <div class="partner-col-key mono">What we ask</div>
+            <ul class="card-list">
+              <li>An AI compute estate we can work against — any size</li>
+              <li>About an hour a fortnight for honest feedback</li>
+              <li>Read-only access to the systems you already run</li>
+              <li>Patience with a product that is still being built</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn-primary partner-cta">Apply as a design partner <span>→</span></a>
+      </div>
     </div>
   </section>
 
@@ -2145,45 +2226,11 @@
     </div>
   </section>
 
-  <!-- ── 09 / TEAM ───────────────────────────────────────── -->
-  <section id="team" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-num mono">09 / Company</div>
-        <div>
-          <h2 class="section-title">Operators, not slideware.</h2>
-          <p class="section-sub">A small founding team with direct experience in data centers, infrastructure program delivery and the operational side of compute.</p>
-        </div>
-      </div>
-
-      <div class="team-grid">
-        <div class="person">
-          <div class="person-avatar"><img src="images/ayobami.jpg" alt="Ayobami Awoyinfa" width="72" height="72" loading="lazy" decoding="async" /></div>
-          <div class="person-role mono">CEO</div>
-          <h3>Ayobami Awoyinfa</h3>
-          <p>12+ years in data centers, networking, and infrastructure program operations. Sets direction across project delivery and the platform — building the layer that tells organizations what AI compute they have and how it is actually doing.</p>
-        </div>
-        <div class="person">
-          <div class="person-avatar mono">TO</div>
-          <div class="person-role mono">CFO</div>
-          <h3>Timothy Oke</h3>
-          <p>Architects the financial backbone — capital strategy, runway, and the unit economics of compute infrastructure.</p>
-        </div>
-        <div class="person">
-          <div class="person-avatar mono">AA</div>
-          <div class="person-role mono">CTO</div>
-          <h3>Afeez Adeyemo</h3>
-          <p>Leads engineering on the KAazi platform — the data model, integrations and the operational record beneath them. Owns the technical bets KAazi makes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 10 / FAQ ────────────────────────────────────────── -->
+  <!-- ── 09 / FAQ ────────────────────────────────────────── -->
   <section id="faq" class="section">
     <div class="wrap-tight">
       <div class="section-head">
-        <div class="section-num mono">10 / FAQ</div>
+        <div class="section-num mono">09 / FAQ</div>
         <div>
           <h2 class="section-title">Questions worth asking up front.</h2>
         </div>
@@ -2200,7 +2247,7 @@
         </details>
         <details>
           <summary>Where is the platform today?</summary>
-          <p>In development. Asset, capacity and health intelligence are the first capabilities being built; maintenance operations, lifecycle management and economics follow. The dashboard shown on this page is a product mockup with illustrative figures, not a live customer environment. We are talking to design partners.</p>
+          <p>In development. Asset, capacity and health intelligence are the first capabilities being built; maintenance operations, lifecycle management and economics follow. The dashboard shown on this page is a product mockup with illustrative figures, not a live customer environment. We are taking on design partners now — the terms are set out under <a href="#partner">Platform</a>.</p>
         </details>
         <details>
           <summary>What is the Compute Passport?</summary>
@@ -2238,11 +2285,11 @@
     </div>
   </section>
 
-  <!-- ── 11 / CONTACT ────────────────────────────────────── -->
+  <!-- ── 10 / CONTACT ────────────────────────────────────── -->
   <section id="contact" class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num mono">11 / Contact</div>
+        <div class="section-num mono">10 / Contact</div>
         <div>
           <h2 class="section-title">Talk to KAazi.</h2>
           <p class="section-sub">An infrastructure project, a platform pilot, or an early conversation — same form, same inbox.</p>
@@ -2323,11 +2370,6 @@
             <span>KAazi Solutions</span>
           </a>
           <p class="tagline">KAazi builds and manages the infrastructure behind AI — combining AI compute infrastructure project delivery with a platform for managing compute assets, capacity, health, maintenance and lifecycle.</p>
-          <div class="social" style="margin-top: 24px;">
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.3 18v-9H5.7v9h2.6zM7 7.7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.3 18v-4.9c0-2.5-1.3-3.6-3.1-3.6-1.5 0-2.1.8-2.5 1.4V9h-2.6v9h2.6v-4.9c0-.2 0-.5.1-.6.2-.5.7-1 1.5-1 1.1 0 1.5.8 1.5 2v4.5h2.5z"/></svg></a>
-            <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg></a>
-            <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.7.8 1.3 1.9 1.3 3.1 0 4.6-2.9 5.6-5.5 5.9.5.4.9 1.1.9 2.3v3.3c0 .3.1.7.8.6A12 12 0 0012 .3"/></svg></a>
-          </div>
         </div>
         <div>
           <h5>Product</h5>
@@ -2350,8 +2392,8 @@
         <div>
           <h5>Company</h5>
           <ul>
-            <li><a href="#team">Team</a></li>
             <li><a href="#vision">Infrastructure Vision</a></li>
+            <li><a href="#partner">Design Partners</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Talk to KAazi</a></li>
           </ul>
