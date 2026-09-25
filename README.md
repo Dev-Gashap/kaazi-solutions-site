@@ -65,6 +65,21 @@ Don't open `index.html` over `file://` — the CSP behaves differently there and
 msedge --headless=new --window-size=1200,630 --screenshot=og-image.png wrapper.html
 ```
 
+## Photography
+
+`images/datahall-*.webp` is a full-bleed band opening the Project Delivery section. Source is an AI-generated data hall (not a KAazi facility, and captioned as such on the page).
+
+Derived with Pillow at 1672 / 1200 / 800 wide, WebP quality 76, plus a 1200px progressive JPEG fallback. 1.71 MB PNG in, 23 KB out on a phone. To regenerate from a new source:
+
+```python
+from PIL import Image
+im = Image.open(SRC).convert("RGB")
+for w in (1672, 1200, 800):
+    im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)       .save("images/datahall-%d.webp" % w, "WEBP", quality=76, method=6)
+```
+
+Never upscale past the source width — it costs bytes and adds no detail.
+
 ## Deployment
 
 Deploys automatically to **kaazidevs.com** via GitHub Pages on every push to `main`. `main` is protected (PR + 1 approval, admin bypass).
