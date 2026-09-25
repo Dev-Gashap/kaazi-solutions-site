@@ -1017,6 +1017,53 @@
       max-width: 560px;
     }
 
+    /* ─── Scroll reveal ──────────────────────────────────── */
+    /* .reveal is applied by JS, so with JS off everything is simply visible */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.65s cubic-bezier(0.22, 0.61, 0.24, 1),
+                  transform 0.65s cubic-bezier(0.22, 0.61, 0.24, 1);
+    }
+    .reveal.is-in { opacity: 1; transform: none; }
+    /* never let a hidden-until-scrolled element trap focus or vanish in print */
+    .reveal:focus-within { opacity: 1; transform: none; }
+    @media print {
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .capbar.will-animate span { width: var(--w) !important; }
+    }
+
+    /* ─── Console comes alive on first view ──────────────── */
+    .capbar span { width: var(--w); }
+    .capbar.will-animate span {
+      width: 0;
+      transition: width 1.15s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .capbar.will-animate.is-in span { width: var(--w); }
+    .capbar.will-animate span:nth-child(2) { transition-delay: 0.10s; }
+    .capbar.will-animate span:nth-child(3) { transition-delay: 0.20s; }
+    .capbar.will-animate span:nth-child(4) { transition-delay: 0.30s; }
+    .capbar.will-animate span:nth-child(5) { transition-delay: 0.36s; }
+    .capbar.will-animate span:nth-child(6) { transition-delay: 0.42s; }
+
+    /* ─── Hover: a light catching the top edge ───────────── */
+    .card::after, .lstage::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.24, 1);
+      pointer-events: none;
+    }
+    .card:hover::after, .lstage:hover::after { transform: scaleX(1); }
+    .lstage { position: relative; transition: background 0.2s ease; }
+    .lstage:hover { background: var(--bg-elev); }
+
   </style>
 </head>
 <body>
@@ -1519,12 +1566,12 @@
             <span>4,096 accelerators</span>
           </div>
           <div class="capbar" aria-hidden="true">
-            <span class="c-alloc" style="width: 46%"></span>
-            <span class="c-res" style="width: 14%"></span>
-            <span class="c-avail" style="width: 24%"></span>
-            <span class="c-maint" style="width: 6%"></span>
-            <span class="c-degr" style="width: 5%"></span>
-            <span class="c-off" style="width: 5%"></span>
+            <span class="c-alloc" style="--w: 46%"></span>
+            <span class="c-res" style="--w: 14%"></span>
+            <span class="c-avail" style="--w: 24%"></span>
+            <span class="c-maint" style="--w: 6%"></span>
+            <span class="c-degr" style="--w: 5%"></span>
+            <span class="c-off" style="--w: 5%"></span>
           </div>
           <ul class="cap-legend mono">
             <li><i class="c-alloc"></i>Allocated 46%</li>
@@ -2284,6 +2331,89 @@
         btn.disabled = false;
       }
     });
+
+    // Scroll reveal + console animation.
+    // Progressive enhancement: classes are added here, so with JS disabled
+    // or reduced motion requested, the page renders fully and statically.
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var SELECTORS = [
+        '.hero-text > *', '.hero-visual', '.hero-spec',
+        '.section-head', '.sub-head',
+        '.grid-3 > .card', '.loop > .lstage', '.scale-steps > .step',
+        '.stack-sheet', '.console', '.partner', '.flow', '.faq',
+        '.mockup-note', '.sheet-cap', '.contact-info', '.contact-form'
+      ];
+
+      var els = [];
+      SELECTORS.forEach(function (sel) {
+        Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
+          if (els.indexOf(el) === -1) { el.classList.add('reveal'); els.push(el); }
+        });
+      });
+
+      // Stagger siblings, in a second pass so every sibling is already marked
+      els.forEach(function (el) {
+        if (!el.parentElement) return;
+        var sibs = Array.prototype.filter.call(el.parentElement.children, function (c) {
+          return c.classList.contains('reveal');
+        });
+        var i = sibs.indexOf(el);
+        if (i > 0) el.style.transitionDelay = Math.min(i * 70, 350) + 'ms';
+      });
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+      els.forEach(function (el) { io.observe(el); });
+
+      // Count a figure up from zero, restoring its exact markup at the end
+      function countUp(el) {
+        var html = el.innerHTML;
+        var m = el.textContent.replace(/\s+/g, ' ').trim().match(/^([\d,]+)/);
+        if (!m) return;
+        var raw = m[1];
+        var target = parseInt(raw.replace(/,/g, ''), 10);
+        if (!isFinite(target) || target === 0) return;
+        var grouped = raw.indexOf(',') > -1;
+        var padded = /^0\d/.test(raw);
+        var width = raw.replace(/,/g, '').length;
+        var start = null, dur = 950;
+
+        function frame(now) {
+          if (start === null) start = now;
+          var p = Math.min((now - start) / dur, 1);
+          var v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          var str = grouped ? v.toLocaleString('en-US') : String(v);
+          while (padded && str.length < width) { str = '0' + str; }
+          el.innerHTML = html.replace(raw, str);
+          if (p < 1) { requestAnimationFrame(frame); } else { el.innerHTML = html; }
+        }
+        requestAnimationFrame(frame);
+      }
+
+      var panel = document.querySelector('.console');
+      if (!panel) return;
+      var bars = document.querySelectorAll('.capbar');
+      Array.prototype.forEach.call(bars, function (b) { b.classList.add('will-animate'); });
+
+      var fired = false;
+      var cio = new IntersectionObserver(function (entries) {
+        if (fired || !entries[0].isIntersecting) return;
+        fired = true;
+        cio.disconnect();
+        Array.prototype.forEach.call(bars, function (b) { b.classList.add('is-in'); });
+        Array.prototype.forEach.call(
+          document.querySelectorAll('.console .scale-stat .figure'), countUp);
+      }, { threshold: 0.2 });
+      cio.observe(panel);
+    })();
   </script>
 
   <!-- Cloudflare Web Analytics — cookieless, no consent banner required -->
