@@ -10,32 +10,32 @@
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" />
 
   <!-- SEO -->
-  <meta name="description" content="KAazi builds GPU infrastructure and the platform, models, and agents that run on top of it. AI infrastructure for teams shipping AI to production." />
+  <meta name="description" content="KAazi helps organizations plan, deploy and manage AI compute infrastructure through project delivery and a platform for asset, capacity, health, maintenance and lifecycle management." />
   <link rel="canonical" href="https://kaazidevs.com/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kaazidevs.com/" />
   <meta property="og:site_name" content="KAazi Solutions" />
-  <meta property="og:title" content="KAazi Solutions — Compute for AI" />
-  <meta property="og:description" content="GPU infrastructure and the AI platform, models, and agents that run on top of it. Built for production." />
+  <meta property="og:title" content="KAazi Solutions | AI Compute Infrastructure Management" />
+  <meta property="og:description" content="AI infrastructure project delivery, plus a platform for managing AI compute assets, capacity, health, maintenance and lifecycle." />
   <meta property="og:image" content="https://kaazidevs.com/images/og-image.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="KAazi Solutions — Compute for AI." />
+  <meta property="og:image:alt" content="KAazi Solutions — AI infrastructure. From deployment to lifecycle." />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KAazi Solutions — Compute for AI" />
-  <meta name="twitter:description" content="GPU infrastructure and the AI platform, models, and agents that run on top of it." />
+  <meta name="twitter:title" content="KAazi Solutions | AI Compute Infrastructure Management" />
+  <meta name="twitter:description" content="Plan, deploy and manage the compute infrastructure powering AI." />
   <meta name="twitter:image" content="https://kaazidevs.com/images/og-image.png" />
-  <meta name="twitter:image:alt" content="KAazi Solutions — Compute for AI." />
+  <meta name="twitter:image:alt" content="KAazi Solutions — AI infrastructure. From deployment to lifecycle." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
-  <title>KAazi Solutions — Compute for AI</title>
+  <title>KAazi Solutions | AI Compute Infrastructure Management</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -911,6 +911,192 @@
     }
     .form-status.ok { color: var(--accent); }
     .form-status.err { color: #ff5a5f; }
+    /* ─── Status badges (today vs roadmap) ───────────────── */
+    .badge {
+      align-self: flex-start;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border: 1px solid var(--rule-mid);
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+    .badge.is-now { color: var(--accent); border-color: rgba(230, 106, 85, 0.45); }
+
+    /* ─── Card bullet list ───────────────────────────────── */
+    .card-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 7px;
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    .card-list li { padding-left: 15px; position: relative; }
+    .card-list li::before { content: "\2014"; position: absolute; left: 0; color: var(--text-dim); }
+
+    /* ─── Platform console (product mockup) ──────────────── */
+    .console { border: 1px solid var(--rule-mid); background: var(--bg-elev); }
+    .console-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+    .console-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      display: inline-block;
+      animation: livepulse 1.8s ease-in-out infinite;
+    }
+    .console-tag {
+      margin-left: auto;
+      color: var(--text-dim);
+      border: 1px solid var(--rule-mid);
+      padding: 3px 8px;
+      font-size: 9px;
+    }
+    .console .scale-block { margin-bottom: 0; border: 0; }
+    .console .scale-stat { background: var(--bg); padding: 22px 20px; }
+    .console .scale-stat .figure { font-size: 28px; }
+    .console-cap { padding: 26px 20px; border-top: 1px solid var(--rule); }
+    .cap-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 14px;
+    }
+    .capbar {
+      display: flex;
+      height: 14px;
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid var(--rule-mid);
+    }
+    .capbar span { display: block; height: 100%; }
+    .cap-legend {
+      list-style: none;
+      margin: 16px 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 22px;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+    .cap-legend li { display: inline-flex; align-items: center; gap: 8px; }
+    .cap-legend i { width: 9px; height: 9px; display: inline-block; font-style: normal; flex-shrink: 0; }
+    .c-alloc { background: rgba(237, 236, 230, 0.82); }
+    .c-res   { background: rgba(237, 236, 230, 0.42); }
+    .c-avail { background: var(--accent); }
+    .c-maint { background: rgba(237, 236, 230, 0.22); }
+    .c-degr  {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--accent-deep) 0 3px,
+        rgba(11, 12, 15, 0.55) 3px 6px);
+    }
+    .c-off   { background: rgba(237, 236, 230, 0.10); }
+    .mockup-note, .sheet-cap {
+      margin-top: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ─── Sub-heads inside a section ─────────────────────── */
+    .sub-head { margin: 76px 0 26px; }
+    .sub-head h3 { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; color: var(--text); }
+    .sub-head p { margin-top: 10px; font-size: 15px; color: var(--text-soft); line-height: 1.6; max-width: 640px; }
+
+    /* ─── Delivery flow chain ────────────────────────────── */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 64px;
+    }
+    .fstep {
+      border: 1px solid var(--rule-mid);
+      padding: 10px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .fstep.is-end { border-color: rgba(230, 106, 85, 0.45); color: var(--accent); }
+    .farrow { font-family: 'JetBrains Mono', monospace; color: var(--text-dim); font-size: 12px; }
+
+    /* ─── Lifecycle / horizon grid ───────────────────────── */
+    .loop {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+    @media (min-width: 600px) { .loop { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1000px) { .loop { grid-template-columns: repeat(4, 1fr); } }
+    .lstage { background: var(--bg); padding: 28px 24px; display: grid; gap: 10px; align-content: start; }
+    .lstage .ls-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .lstage .ls-name { font-size: 19px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+    .lstage .ls-owner { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+    .lstage.is-loop .ls-num { color: var(--text-dim); }
+
+    /* ─── Select field ───────────────────────────────────── */
+    .field select {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--rule-mid);
+      border-radius: 0;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 10px 0;
+      outline: none;
+      transition: border-color 0.15s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--text-soft) 50%),
+        linear-gradient(135deg, var(--text-soft) 50%, transparent 50%);
+      background-position: calc(100% - 9px) 19px, calc(100% - 5px) 19px;
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+    }
+    .field select:focus { border-bottom-color: var(--accent); }
+    .field select:invalid { color: var(--text-dim); }
+    .field select option { background: var(--bg-elev); color: var(--text); }
+
   </style>
 </head>
 <body>
@@ -920,11 +1106,9 @@
   <!-- ── STATUS BAR ──────────────────────────────────────── -->
   <div class="statusbar">
     <div class="statusbar-inner mono">
-      <span class="status-item"><span class="status-dot" aria-hidden="true"></span>INFRA / ROADMAP</span>
+      <span class="status-item"><span class="status-dot" aria-hidden="true"></span>PLATFORM / IN DEVELOPMENT</span>
       <span class="status-sep" aria-hidden="true">·</span>
-      <span class="status-item">REGIONS / PLANNED</span>
-      <span class="status-sep" aria-hidden="true">·</span>
-      <span class="status-item">US &nbsp;·&nbsp; NG &nbsp;·&nbsp; SOUTHERN AFRICA</span>
+      <span class="status-item">PLAN &nbsp;·&nbsp; DELIVER &nbsp;·&nbsp; MANAGE</span>
       <span class="status-sep" aria-hidden="true">·</span>
       <span class="status-item" id="status-date">—</span>
     </div>
@@ -938,29 +1122,27 @@
         <span>KAazi</span>
       </a>
       <div class="nav-links">
-        <a href="#nodes">Nodes</a>
-        <a href="#regions">Regions</a>
         <a href="#platform">Platform</a>
-        <a href="#services">Services</a>
-        <a href="#scale">Scale</a>
-        <a href="#stack">Stack</a>
-        <a href="#team">Team</a>
+        <a href="#delivery">Project Delivery</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#lifecycle">How It Works</a>
+        <a href="#vision">Vision</a>
+        <a href="#team">Company</a>
       </div>
-      <a href="#contact" class="nav-cta">Request Compute</a>
+      <a href="#contact" class="nav-cta">Talk to KAazi</a>
       <button type="button" id="mob-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-controls="mobmenu" aria-expanded="false">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
     <div id="mobmenu" class="mob-menu">
       <div class="mob-menu-inner">
-        <a href="#nodes">Nodes</a>
-        <a href="#regions">Regions</a>
         <a href="#platform">Platform</a>
-        <a href="#services">Services</a>
-        <a href="#scale">Scale</a>
-        <a href="#stack">Stack</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Request Compute →</a>
+        <a href="#delivery">Project Delivery</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#lifecycle">How It Works</a>
+        <a href="#vision">Vision</a>
+        <a href="#team">Company</a>
+        <a href="#contact">Talk to KAazi →</a>
       </div>
     </div>
   </nav>
@@ -972,27 +1154,28 @@
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-text">
-          <div class="hero-eyebrow mono">KAAZI SOLUTIONS &nbsp;/&nbsp; AI INFRASTRUCTURE &amp; PLATFORM</div>
+          <div class="hero-eyebrow mono">KAAZI SOLUTIONS &nbsp;/&nbsp; AI COMPUTE INFRASTRUCTURE</div>
 
           <h1 class="hero-h1">
-            <span class="line">Compute for AI.</span>
-            <span class="line">From the rack <span class="accent">to the agent.</span></span>
+            <span class="line">AI infrastructure.</span>
+            <span class="line">From deployment <span class="accent">to lifecycle.</span></span>
           </h1>
 
           <p class="hero-sub">
-            KAazi is building GPU infrastructure — and the platform, models,
-            and agents that run on top of it. Built for teams shipping AI to production.
+            KAazi helps organizations plan, deploy and manage the compute infrastructure
+            powering AI — combining infrastructure project delivery with a platform for
+            asset, capacity, health, maintenance and lifecycle management.
           </p>
 
           <div class="hero-ctas">
-            <a href="#contact" class="btn-primary">Request Compute <span>→</span></a>
-            <a href="#scale" class="btn-secondary">Deployment notes <span>→</span></a>
+            <a href="#platform" class="btn-primary">Explore the Platform <span>→</span></a>
+            <a href="#delivery" class="btn-secondary">Plan an AI Infrastructure Project <span>→</span></a>
           </div>
         </div>
 
         <div class="hero-visual">
           <!-- Detailed GPU rack — TOR switch, 3× 4U GPU servers, cable mgmt, 2U PDU -->
-          <svg class="rack-svg" viewBox="0 0 340 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="KAazi GPU server rack with switch, three 4U H100 servers, cable management, and PDU" role="img">
+          <svg class="rack-svg" viewBox="0 0 340 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="AI compute rack: management switch, three 4U GPU servers, cable management and PDU" role="img">
             <defs>
               <linearGradient id="rackFrameFill" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stop-color="rgba(33, 36, 43, 1)" />
@@ -1057,8 +1240,8 @@
             <ellipse cx="170" cy="220" rx="190" ry="250" fill="url(#rackAura)" />
 
             <!-- Top mono caption -->
-            <text x="20" y="14" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(140, 142, 148, 1)" letter-spacing="0.2em">RACK · 01</text>
-            <text x="290" y="14" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(140, 142, 148, 1)" letter-spacing="0.2em">AMEA</text>
+            <text x="20" y="14" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(140, 142, 148, 1)" letter-spacing="0.2em">RACK · B-14</text>
+            <text x="290" y="14" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(140, 142, 148, 1)" letter-spacing="0.2em">SITE 02</text>
 
             <!-- Corner brackets (engineering accents) -->
             <g stroke="rgba(237, 236, 230, 0.55)" stroke-width="1.3" stroke-linecap="square" fill="none">
@@ -1151,7 +1334,7 @@
               <!-- KAazi K mark -->
               <rect x="6" y="3" width="9" height="9" fill="rgba(237, 236, 230, 0.92)" />
               <text x="10.5" y="10.2" font-family="JetBrains Mono, monospace" font-size="7.5" fill="rgba(11, 12, 15, 1)" text-anchor="middle" font-weight="600">K</text>
-              <text x="20" y="10" font-family="JetBrains Mono, monospace" font-size="6.8" fill="rgba(237, 236, 230, 0.80)" letter-spacing="0.16em">KAAZI · GPU 01 · H100 SXM 8×</text>
+              <text x="20" y="10" font-family="JetBrains Mono, monospace" font-size="6.8" fill="rgba(237, 236, 230, 0.80)" letter-spacing="0.16em">NODE GPU-0142 · H100 SXM 8×</text>
               <!-- status LED cluster -->
               <circle cx="208" cy="7" r="1.5" fill="url(#ledGreen)" /><circle cx="208" cy="7" r="0.8" fill="rgba(140, 230, 160, 1)" />
               <circle cx="216" cy="7" r="1.5" fill="url(#ledGreen)" /><circle cx="216" cy="7" r="0.8" fill="rgba(140, 230, 160, 1)" />
@@ -1196,7 +1379,7 @@
               <rect x="0" y="0" width="252" height="14" fill="rgba(8, 10, 14, 0.55)" />
               <rect x="6" y="3" width="9" height="9" fill="rgba(237, 236, 230, 0.92)" />
               <text x="10.5" y="10.2" font-family="JetBrains Mono, monospace" font-size="7.5" fill="rgba(11, 12, 15, 1)" text-anchor="middle" font-weight="600">K</text>
-              <text x="20" y="10" font-family="JetBrains Mono, monospace" font-size="6.8" fill="rgba(237, 236, 230, 0.80)" letter-spacing="0.16em">KAAZI · GPU 02 · H100 SXM 8×</text>
+              <text x="20" y="10" font-family="JetBrains Mono, monospace" font-size="6.8" fill="rgba(237, 236, 230, 0.80)" letter-spacing="0.16em">NODE GPU-0143 · H100 SXM 8×</text>
               <circle cx="208" cy="7" r="1.5" fill="url(#ledGreen)" /><circle cx="208" cy="7" r="0.8" fill="rgba(140, 230, 160, 1)" />
               <circle cx="216" cy="7" r="1.5" fill="url(#ledGreen)" /><circle cx="216" cy="7" r="0.8" fill="rgba(140, 230, 160, 1)" />
               <circle cx="224" cy="7" r="1.2" fill="rgba(40, 42, 48, 1)" stroke="rgba(237, 236, 230, 0.25)" stroke-width="0.3" />
@@ -1233,7 +1416,7 @@
               <rect x="0" y="0" width="252" height="14" fill="rgba(8, 10, 14, 0.55)" />
               <rect x="6" y="3" width="9" height="9" fill="rgba(237, 236, 230, 0.92)" />
               <text x="10.5" y="10.2" font-family="JetBrains Mono, monospace" font-size="7.5" fill="rgba(11, 12, 15, 1)" text-anchor="middle" font-weight="600">K</text>
-              <text x="20" y="10" font-family="JetBrains Mono, monospace" font-size="6.8" fill="rgba(237, 236, 230, 0.80)" letter-spacing="0.16em">KAAZI · GPU 03 · H200 SXM 8×</text>
+              <text x="20" y="10" font-family="JetBrains Mono, monospace" font-size="6.8" fill="rgba(237, 236, 230, 0.80)" letter-spacing="0.16em">NODE GPU-0144 · H200 SXM 8×</text>
               <circle cx="208" cy="7" r="1.5" fill="url(#ledGreen)" /><circle cx="208" cy="7" r="0.8" fill="rgba(140, 230, 160, 1)" />
               <circle cx="216" cy="7" r="1.2" fill="rgba(40, 42, 48, 1)" stroke="rgba(237, 236, 230, 0.25)" stroke-width="0.3" />
               <circle cx="224" cy="7" r="1.5" fill="url(#ledGreen)" /><circle cx="224" cy="7" r="0.8" fill="rgba(140, 230, 160, 1)" />
@@ -1284,72 +1467,510 @@
 
       <div class="hero-spec mono">
         <div class="hero-spec-item">
-          <span class="label">Compute</span>
-          <span class="val">H100 · H200 · GB200</span>
+          <span class="label">Model</span>
+          <span class="val">Project delivery + platform</span>
         </div>
         <div class="hero-spec-item">
-          <span class="label">Fabric</span>
-          <span class="val">NDR InfiniBand · 400 Gbps</span>
+          <span class="label">Platform</span>
+          <span class="val">In development</span>
         </div>
         <div class="hero-spec-item">
-          <span class="label">Orchestration</span>
-          <span class="val">Kubernetes · Slurm</span>
+          <span class="label">Approach</span>
+          <span class="val">Vendor-neutral</span>
         </div>
         <div class="hero-spec-item">
-          <span class="label">Footprint</span>
-          <span class="val">Planned · US · Africa</span>
+          <span class="label">Scope</span>
+          <span class="val">Plan · Deliver · Manage</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 01 / NODES (Infrastructure) ─────────────────────── -->
-  <section id="nodes" class="section">
+  <!-- ── 01 / WHAT KAAZI DOES ────────────────────────────── -->
+  <section id="what" class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num mono">01 / Nodes</div>
+        <div class="section-num mono">01 / What we do</div>
         <div>
-          <h2 class="section-title">The infrastructure we operate.</h2>
-          <p class="section-sub">Bare-metal GPU clusters tuned for training and inference, networked with RDMA fabric and storage built for the throughput AI actually needs.</p>
+          <h2 class="section-title">From AI infrastructure planning to operations.</h2>
+          <p class="section-sub">Two connected businesses. We help organizations get AI compute infrastructure planned, coordinated and commissioned — then we give them a way to understand and operate it for the rest of its life.</p>
         </div>
       </div>
 
       <div class="grid-3">
         <div class="card">
-          <div class="card-label mono">01.1 — Compute</div>
-          <h3 class="card-title">GPU Clusters</h3>
-          <p class="card-body">NVIDIA H100 and H200 SXM nodes, GB200 NVL72 on roadmap. Tuned per workload — training pods or low-latency inference fleets.</p>
+          <div class="card-label mono">01.1 — Plan</div>
+          <h3 class="card-title">Plan</h3>
+          <ul class="card-list">
+            <li>AI infrastructure strategy</li>
+            <li>Compute requirements definition</li>
+            <li>Capacity planning</li>
+            <li>Infrastructure architecture coordination</li>
+            <li>Power, cooling, network and storage readiness</li>
+            <li>Vendor and OEM planning</li>
+          </ul>
+          <span class="badge is-now">Available today</span>
         </div>
         <div class="card">
-          <div class="card-label mono">01.2 — Fabric</div>
-          <h3 class="card-title">Interconnect</h3>
-          <p class="card-body">NDR InfiniBand at 400 Gbps with RoCEv2 fallback. Non-blocking topology for collectives across hundreds of nodes.</p>
+          <div class="card-label mono">01.2 — Deliver</div>
+          <h3 class="card-title">Deliver</h3>
+          <ul class="card-list">
+            <li>Program and project management</li>
+            <li>OEM and vendor coordination</li>
+            <li>Site readiness</li>
+            <li>Deployment coordination</li>
+            <li>Commissioning and validation</li>
+            <li>Operational handover and documentation</li>
+          </ul>
+          <span class="badge is-now">Available today</span>
         </div>
         <div class="card">
-          <div class="card-label mono">01.3 — Storage</div>
-          <h3 class="card-title">Parallel I/O</h3>
-          <p class="card-body">NVMe-oF parallel pools, Lustre for hot datasets, S3-compatible object for cold. Tiered automatically by access pattern.</p>
+          <div class="card-label mono">01.3 — Manage</div>
+          <h3 class="card-title">Manage</h3>
+          <ul class="card-list">
+            <li>Compute asset intelligence</li>
+            <li>Capacity management</li>
+            <li>Infrastructure health and utilization</li>
+            <li>Maintenance and incident tracking</li>
+            <li>Lifecycle management</li>
+            <li>Infrastructure cost and economics</li>
+          </ul>
+          <span class="badge">Platform in development</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 02 / REGIONS ────────────────────────────────────── -->
-  <section id="regions" class="section">
+  <!-- ── 02 / PLATFORM ───────────────────────────────────── -->
+  <section id="platform" class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num mono">02 / Regions</div>
+        <div class="section-num mono">02 / Platform</div>
         <div>
-          <h2 class="section-title">Global AI infrastructure vision.</h2>
-          <p class="section-sub">KAazi is building toward a distributed AI infrastructure footprint designed to expand access to high-performance compute across key global markets. Our long-term roadmap includes the United States and strategic African markets, including Nigeria and Southern Africa. Regional infrastructure availability will be announced as capacity becomes operational.</p>
+          <h2 class="section-title">Know your AI infrastructure.</h2>
+          <p class="section-sub">One operating view across your AI compute estate — what you have, where it is, how much usable capacity remains, what is degraded, and what needs attention. KAazi is building the system of record for AI compute infrastructure. It is not a scheduler and not a replacement for your DCIM, CMDB or GPU orchestration layer — it is designed to sit across them.</p>
         </div>
       </div>
 
-      <!-- thin "world line" — rough longitudinal position of each region -->
+      <div class="console">
+        <div class="console-bar mono">
+          <span class="console-dot" aria-hidden="true"></span>KAAZI PLATFORM &nbsp;/&nbsp; ESTATE OVERVIEW
+          <span class="console-tag">Product mockup · illustrative data</span>
+        </div>
+
+        <div class="scale-block" role="img" aria-label="Product mockup of the KAazi platform estate overview, showing illustrative metrics: 4,096 total accelerators, 3,894 usable, 983 available, 71 percent average utilization, 128 degraded or offline, 11 open incidents, 23 maintenance items due, across 6 sites and 14 clusters.">
+          <div class="scale-stat">
+            <div class="figure">4,096</div>
+            <div class="label">Total Accelerators</div>
+          </div>
+          <div class="scale-stat">
+            <div class="figure">3,894</div>
+            <div class="label">Usable Capacity</div>
+          </div>
+          <div class="scale-stat">
+            <div class="figure">983</div>
+            <div class="label">Available Capacity</div>
+          </div>
+          <div class="scale-stat">
+            <div class="figure">71<span class="accent">%</span></div>
+            <div class="label">Average Utilization</div>
+          </div>
+          <div class="scale-stat">
+            <div class="figure">128</div>
+            <div class="label">Degraded / Offline</div>
+          </div>
+          <div class="scale-stat">
+            <div class="figure">11</div>
+            <div class="label">Open Incidents</div>
+          </div>
+          <div class="scale-stat">
+            <div class="figure">23</div>
+            <div class="label">Maintenance Due</div>
+          </div>
+          <div class="scale-stat">
+            <div class="figure">06 <span class="accent">/</span> 14</div>
+            <div class="label">Sites / Clusters</div>
+          </div>
+        </div>
+
+        <div class="console-cap">
+          <div class="cap-head mono">
+            <span>Capacity state</span>
+            <span>4,096 accelerators</span>
+          </div>
+          <div class="capbar" aria-hidden="true">
+            <span class="c-alloc" style="width: 46%"></span>
+            <span class="c-res" style="width: 14%"></span>
+            <span class="c-avail" style="width: 24%"></span>
+            <span class="c-maint" style="width: 6%"></span>
+            <span class="c-degr" style="width: 5%"></span>
+            <span class="c-off" style="width: 5%"></span>
+          </div>
+          <ul class="cap-legend mono">
+            <li><i class="c-alloc"></i>Allocated 46%</li>
+            <li><i class="c-res"></i>Reserved 14%</li>
+            <li><i class="c-avail"></i>Available 24%</li>
+            <li><i class="c-maint"></i>Maintenance 6%</li>
+            <li><i class="c-degr"></i>Degraded 5%</li>
+            <li><i class="c-off"></i>Offline / RMA 5%</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mockup-note">Interface concept. Figures are illustrative and do not represent any KAazi-operated fleet.</p>
+
+      <div class="sub-head">
+        <h3>Platform capabilities</h3>
+        <p>What the platform is being built to do. Each capability is marked with where it stands today.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-label mono">02.1 — Assets</div>
+          <h3 class="card-title">Asset Intelligence</h3>
+          <p class="card-body">Know every accelerator, server, cluster, rack and site — identity, location, configuration and current state, in one record.</p>
+          <span class="badge">In development</span>
+        </div>
+        <div class="card">
+          <div class="card-label mono">02.2 — Capacity</div>
+          <h3 class="card-title">Capacity Intelligence</h3>
+          <p class="card-body">Understand installed, allocated, reserved, available and unavailable compute — not just how many GPUs exist, but how much is actually usable right now.</p>
+          <span class="badge">In development</span>
+        </div>
+        <div class="card">
+          <div class="card-label mono">02.3 — Health</div>
+          <h3 class="card-title">Infrastructure Health</h3>
+          <p class="card-body">Monitor the operational state of AI compute infrastructure, surfacing degraded, offline and at-risk assets against the telemetry you already collect.</p>
+          <span class="badge">In development</span>
+        </div>
+        <div class="card">
+          <div class="card-label mono">02.4 — Maintenance</div>
+          <h3 class="card-title">Maintenance Operations</h3>
+          <p class="card-body">Track incidents, maintenance activity, work orders, warranty position and return-to-service status across sites and service providers.</p>
+          <span class="badge">Planned</span>
+        </div>
+        <div class="card">
+          <div class="card-label mono">02.5 — Lifecycle</div>
+          <h3 class="card-title">Lifecycle Management</h3>
+          <p class="card-body">Follow assets from deployment through production, repair, reassignment and retirement — with the operating history that decision carries.</p>
+          <span class="badge">Planned</span>
+        </div>
+        <div class="card">
+          <div class="card-label mono">02.6 — Economics</div>
+          <h3 class="card-title">Cost &amp; Economics</h3>
+          <p class="card-body">Understand utilization against operating cost, and how the value of an AI compute estate changes over its life.</p>
+          <span class="badge">Roadmap</span>
+        </div>
+      </div>
+
+      <div class="sub-head">
+        <h3>The KAazi Compute Passport</h3>
+        <p>A persistent operational record for an individual compute asset. Every accelerator carries its own history — where it has been, how hard it has worked, what has gone wrong, and what that means for what comes next.</p>
+      </div>
+
+      <div class="stack-sheet">
+        <div class="stack-row">
+          <div class="stack-key">Identity</div>
+          <div class="stack-val">
+            <span class="tag">NVIDIA H100 SXM 80GB</span>
+            <span class="tag">SN 1650223041185</span>
+            <span class="tag">UUID GPU-4a7f…d219</span>
+          </div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Placement</div>
+          <div class="stack-val">
+            <span class="tag">Site 02</span>
+            <span class="tag">Hall B</span>
+            <span class="tag">Rack B-14</span>
+            <span class="tag">Node gpu-0142</span>
+            <span class="tag">Slot 3</span>
+          </div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Lifecycle</div>
+          <div class="stack-val">
+            <span class="tag">Commissioned 2025-02-11</span>
+            <span class="tag">In production</span>
+            <span class="tag">Operating hours 14,208</span>
+          </div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Health history</div>
+          <div class="stack-val">
+            <span class="tag">2 thermal events</span>
+            <span class="tag">1 ECC threshold breach</span>
+            <span class="tag">Last check 2026-09-18</span>
+          </div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Service record</div>
+          <div class="stack-val">
+            <span class="tag">RMA 2025-11 · replaced</span>
+            <span class="tag">Warranty to 2028-02</span>
+            <span class="tag">WO-2291 closed</span>
+          </div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Utilization</div>
+          <div class="stack-val">
+            <span class="tag">90-day avg 68%</span>
+            <span class="tag">Allocated — training pool</span>
+          </div>
+        </div>
+      </div>
+      <p class="sheet-cap">Illustrative record — product concept, not a live asset.</p>
+    </div>
+  </section>
+
+  <!-- ── 03 / PROJECT DELIVERY ───────────────────────────── -->
+  <section id="delivery" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-num mono">03 / Project delivery</div>
+        <div>
+          <h2 class="section-title">Build the infrastructure behind AI.</h2>
+          <p class="section-sub">KAazi helps organizations take AI infrastructure projects from requirements through deployment and operational readiness — coordinating the vendors, the site and the sequence, and handing over infrastructure that is documented and ready to run.</p>
+        </div>
+      </div>
+
+      <div class="flow" role="list" aria-label="AI infrastructure project delivery stages">
+        <span class="fstep" role="listitem">Strategy</span>
+        <span class="farrow" aria-hidden="true">→</span>
+        <span class="fstep" role="listitem">Requirements</span>
+        <span class="farrow" aria-hidden="true">→</span>
+        <span class="fstep" role="listitem">Infrastructure planning</span>
+        <span class="farrow" aria-hidden="true">→</span>
+        <span class="fstep" role="listitem">Vendor coordination</span>
+        <span class="farrow" aria-hidden="true">→</span>
+        <span class="fstep" role="listitem">Deployment</span>
+        <span class="farrow" aria-hidden="true">→</span>
+        <span class="fstep" role="listitem">Commissioning</span>
+        <span class="farrow" aria-hidden="true">→</span>
+        <span class="fstep" role="listitem">Operational handover</span>
+        <span class="farrow" aria-hidden="true">→</span>
+        <span class="fstep is-end" role="listitem">KAazi platform</span>
+      </div>
+
+      <div class="scale-steps">
+        <div class="step">
+          <div class="num mono">01 / Scope</div>
+          <h4>Define what the infrastructure has to do.</h4>
+          <p>Workload profile, compute requirements, capacity targets, and the power, cooling, network and storage envelope the site has to meet. The output is a requirements set a vendor can quote against and a plan a board can approve.</p>
+        </div>
+        <div class="step">
+          <div class="num mono">02 / Coordinate</div>
+          <h4>Run the project across the parties involved.</h4>
+          <p>OEMs, integrators, colocation providers, remote hands and internal teams. KAazi manages the program and the sequence; physical execution is delivered by qualified partners, customer teams or the OEM, whichever fits the site.</p>
+        </div>
+        <div class="step">
+          <div class="num mono">03 / Hand over</div>
+          <h4>Commission, document, and onboard.</h4>
+          <p>Validation against the original requirements, as-built documentation, and operational handover — with assets onboarded into the KAazi platform so the record starts on day one rather than being reconstructed later.</p>
+        </div>
+      </div>
+
+      <div class="sub-head">
+        <h3>Engagements</h3>
+        <p>Scoped to the stage you are at. KAazi coordinates and oversees delivery; it does not manufacture hardware, and licensed engineering disciplines are delivered through qualified partners.</p>
+      </div>
+
+      <div class="stack-sheet">
+        <div class="stack-row">
+          <div class="stack-key">Advisory</div>
+          <div class="stack-val">AI infrastructure advisory — where compute should sit, what it should look like, and what the build actually requires.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Project delivery</div>
+          <div class="stack-val">AI infrastructure project delivery, from requirements through commissioning and handover.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Planning</div>
+          <div class="stack-val">Capacity and infrastructure planning — compute, power, cooling, network, storage and growth headroom.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Program management</div>
+          <div class="stack-val">Deployment program management across OEMs, integrators, colocation providers and internal teams.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Readiness</div>
+          <div class="stack-val">Infrastructure operations readiness — runbooks, escalation paths, spares strategy and support model.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Platform</div>
+          <div class="stack-val">Platform implementation and integration — asset onboarding and connection into existing infrastructure systems.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Maintenance</div>
+          <div class="stack-val">Maintenance management — incident, work-order, warranty and RMA coordination across service providers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 / HOW IT WORKS ───────────────────────────────── -->
+  <section id="lifecycle" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-num mono">04 / How it works</div>
+        <div>
+          <h2 class="section-title">One infrastructure lifecycle.</h2>
+          <p class="section-sub">Most providers disappear at handover. KAazi is built the other way round — the project produces the record, the platform operates it, and what the platform learns shapes the next expansion.</p>
+        </div>
+      </div>
+
+      <div class="loop">
+        <div class="lstage">
+          <div class="ls-num mono">01 / Plan</div>
+          <div class="ls-name">Requirements and design</div>
+          <div class="ls-owner">KAazi project delivery</div>
+        </div>
+        <div class="lstage">
+          <div class="ls-num mono">02 / Build</div>
+          <div class="ls-name">Deployment and commissioning</div>
+          <div class="ls-owner">KAazi with qualified delivery partners</div>
+        </div>
+        <div class="lstage">
+          <div class="ls-num mono">03 / Discover</div>
+          <div class="ls-name">Assets onboarded to the record</div>
+          <div class="ls-owner">KAazi platform</div>
+        </div>
+        <div class="lstage">
+          <div class="ls-num mono">04 / Operate</div>
+          <div class="ls-name">Capacity, health and utilization</div>
+          <div class="ls-owner">KAazi platform</div>
+        </div>
+        <div class="lstage">
+          <div class="ls-num mono">05 / Maintain</div>
+          <div class="ls-name">Incidents, work orders, RMA</div>
+          <div class="ls-owner">KAazi with customer and service providers</div>
+        </div>
+        <div class="lstage">
+          <div class="ls-num mono">06 / Optimize</div>
+          <div class="ls-name">Utilization and economics</div>
+          <div class="ls-owner">KAazi intelligence</div>
+        </div>
+        <div class="lstage">
+          <div class="ls-num mono">07 / Expand</div>
+          <div class="ls-name">The next tranche of capacity</div>
+          <div class="ls-owner">KAazi project delivery</div>
+        </div>
+        <div class="lstage is-loop">
+          <div class="ls-num mono">↻ Loop</div>
+          <div class="ls-name">Expansion re-enters at plan</div>
+          <div class="ls-owner">Each cycle starts with the operating history of the last one, not a blank page.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 / SOLUTIONS ──────────────────────────────────── -->
+  <section id="solutions" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-num mono">05 / Solutions</div>
+        <div>
+          <h2 class="section-title">Built for the people who run the compute.</h2>
+          <p class="section-sub">Different operators, same underlying problem: the infrastructure is expensive, distributed, and harder to account for than anyone expects.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-label mono">05.1</div>
+          <h3 class="card-title">GPU Clouds &amp; Neoclouds</h3>
+          <p class="card-body">Track compute assets, capacity, health, maintenance and lifecycle across distributed infrastructure — and know how much sellable capacity actually exists at any moment.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">05.2</div>
+          <h3 class="card-title">Enterprise AI Infrastructure</h3>
+          <p class="card-body">Maintain operational visibility across private AI compute environments from deployment through retirement, without standing up a bespoke tracking system per site.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">05.3</div>
+          <h3 class="card-title">Data Center Operators</h3>
+          <p class="card-body">Connect what is physically installed to what is operationally usable, so accelerator-level state is visible alongside facility systems rather than separate from them.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">05.4</div>
+          <h3 class="card-title">AI Companies &amp; Model Labs</h3>
+          <p class="card-body">Get a first cluster planned, procured and commissioned — then keep an accurate picture of what you own as the estate grows faster than the team tracking it.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">05.5</div>
+          <h3 class="card-title">Research &amp; HPC</h3>
+          <p class="card-body">Account for shared accelerators across groups and grants, with lifecycle and utilization history that survives staff turnover and refresh cycles.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">05.6</div>
+          <h3 class="card-title">Infrastructure Integrators</h3>
+          <p class="card-body">Hand customers a documented, onboarded estate at the end of a build instead of a spreadsheet — and stay in the loop on what happens to it afterwards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 06 / WHY KAAZI ──────────────────────────────────── -->
+  <section id="why" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-num mono">06 / Why</div>
+        <div>
+          <h2 class="section-title">A different shape of AI infrastructure company.</h2>
+          <p class="section-sub">Software companies do not deploy infrastructure. Integrators do not stay for the lifecycle. KAazi is being built to do both.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-label mono">— 01</div>
+          <h3 class="card-title">Infrastructure-native.</h3>
+          <p class="card-body">Built around the physical and digital systems that actually power AI — racks, power, thermals, fabric, accelerators — not an abstraction layer written by people who have never been on a data hall floor.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">— 02</div>
+          <h3 class="card-title">Lifecycle visibility.</h3>
+          <p class="card-body">From deployment through maintenance and retirement. The record does not end at commissioning, which is exactly where most infrastructure knowledge is currently lost.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">— 03</div>
+          <h3 class="card-title">Vendor-neutral.</h3>
+          <p class="card-body">Designed to connect across compute environments, infrastructure systems and service providers. We are not selling you hardware, so we have no reason to recommend any.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">— 04</div>
+          <h3 class="card-title">Digital and physical.</h3>
+          <p class="card-body">Infrastructure intelligence connected to real-world deployment and maintenance workflows — the same team that coordinates the build defines the record it produces.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">— 05</div>
+          <h3 class="card-title">Capacity intelligence.</h3>
+          <p class="card-body">Know not only what infrastructure exists, but how much usable compute is actually available — after allocation, reservation, degradation and maintenance are accounted for.</p>
+        </div>
+        <div class="card">
+          <div class="card-label mono">— 06</div>
+          <h3 class="card-title">One accountable partner.</h3>
+          <p class="card-body">Planning, delivery coordination and ongoing operational visibility under one engagement, instead of a handoff chain where nobody owns the outcome end to end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 07 / INFRASTRUCTURE VISION ──────────────────────── -->
+  <section id="vision" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-num mono">07 / Vision</div>
+        <div>
+          <h2 class="section-title">Infrastructure Vision</h2>
+          <p class="section-sub">KAazi's long-term roadmap includes developing and operating AI compute infrastructure in strategic markets as the company expands beyond software and project delivery. KAazi does not own or operate compute infrastructure today.</p>
+        </div>
+      </div>
+
+      <!-- thin "world line" — rough longitudinal position of each market -->
       <div class="region-arc" aria-hidden="true">
-        <span class="ra-tick" style="left: 16%;">US<span class="ra-city">Infrastructure roadmap</span></span>
-        <span class="ra-tick" style="left: 50%;">NG<span class="ra-city">Planned expansion</span></span>
-        <span class="ra-tick" style="left: 84%;">SAF<span class="ra-city">Future expansion</span></span>
+        <span class="ra-tick" style="left: 16%;">US<span class="ra-city">Primary market</span></span>
+        <span class="ra-tick" style="left: 50%;">NG<span class="ra-city">Development opportunity</span></span>
+        <span class="ra-tick" style="left: 84%;">AFR<span class="ra-city">Long-term expansion</span></span>
       </div>
 
       <div class="regions">
@@ -1359,24 +1980,20 @@
             <span class="region-label">US</span>
           </div>
           <div class="region-body">
-            <div class="region-cities mono">United States &nbsp;·&nbsp; Infrastructure roadmap</div>
-            <p class="region-tagline">Anchor market on our infrastructure roadmap — designed to put training and inference capacity next to the teams already building at scale.</p>
+            <div class="region-cities mono">United States &nbsp;·&nbsp; Primary commercial market</div>
+            <p class="region-tagline">The primary commercial and operating market — where the platform is being built for, and where project delivery work is focused first.</p>
             <div class="region-specs">
               <div class="rspec">
+                <span class="rspec-key">Today</span>
+                <span class="rspec-val">Project delivery &nbsp;<span class="accent">/</span>&nbsp; platform development</span>
+              </div>
+              <div class="rspec">
+                <span class="rspec-key">Longer term</span>
+                <span class="rspec-val">KAazi-developed AI compute infrastructure</span>
+              </div>
+              <div class="rspec">
                 <span class="rspec-key">Status</span>
-                <span class="rspec-val">Infrastructure roadmap</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Sovereignty</span>
-                <span class="rspec-val">Designed for US data residency &nbsp;<span class="accent">/</span>&nbsp; controlled cross-border</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Architecture</span>
-                <span class="rspec-val">NVIDIA SXM &nbsp;·&nbsp; NDR InfiniBand (target)</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Availability</span>
-                <span class="rspec-val">Announced as capacity becomes operational</span>
+                <span class="rspec-val">No KAazi-operated infrastructure today</span>
               </div>
             </div>
           </div>
@@ -1388,24 +2005,20 @@
             <span class="region-label">NG</span>
           </div>
           <div class="region-body">
-            <div class="region-cities mono">Nigeria &nbsp;·&nbsp; Planned expansion</div>
-            <p class="region-tagline">Planned expansion into West Africa, so teams building for the continent can train and serve models closer to the users they serve.</p>
+            <div class="region-cities mono">Nigeria &nbsp;·&nbsp; Development opportunity</div>
+            <p class="region-tagline">A future AI infrastructure development opportunity, driven by demand for in-country compute and the team's operating history in the market.</p>
             <div class="region-specs">
               <div class="rspec">
+                <span class="rspec-key">Today</span>
+                <span class="rspec-val">Advisory &nbsp;<span class="accent">/</span>&nbsp; project delivery engagements</span>
+              </div>
+              <div class="rspec">
+                <span class="rspec-key">Longer term</span>
+                <span class="rspec-val">AI infrastructure development, subject to power and connectivity</span>
+              </div>
+              <div class="rspec">
                 <span class="rspec-key">Status</span>
-                <span class="rspec-val">Planned expansion</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Sovereignty</span>
-                <span class="rspec-val">Designed for NG data residency &nbsp;<span class="accent">/</span>&nbsp; controlled egress</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Architecture</span>
-                <span class="rspec-val">NVIDIA SXM &nbsp;·&nbsp; NDR InfiniBand (target)</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Availability</span>
-                <span class="rspec-val">Announced as capacity becomes operational</span>
+                <span class="rspec-val">Opportunity under assessment</span>
               </div>
             </div>
           </div>
@@ -1414,291 +2027,132 @@
         <article class="region">
           <div class="region-mark">
             <span class="region-dot" aria-hidden="true"></span>
-            <span class="region-label">SAF</span>
+            <span class="region-label">AFR</span>
           </div>
           <div class="region-body">
-            <div class="region-cities mono">Southern Africa &nbsp;·&nbsp; Future expansion</div>
-            <p class="region-tagline">Future expansion across Southern Africa, extending regional capacity and in-region residency options as the footprint grows.</p>
+            <div class="region-cities mono">Africa &amp; other regions &nbsp;·&nbsp; Long-term expansion</div>
+            <p class="region-tagline">Long-term expansion aligned with power availability, connectivity and real customer demand — not with a map that looks impressive on a slide.</p>
             <div class="region-specs">
               <div class="rspec">
+                <span class="rspec-key">Today</span>
+                <span class="rspec-val">None</span>
+              </div>
+              <div class="rspec">
+                <span class="rspec-key">Longer term</span>
+                <span class="rspec-val">Expansion where power, connectivity and demand align</span>
+              </div>
+              <div class="rspec">
                 <span class="rspec-key">Status</span>
-                <span class="rspec-val">Future expansion</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Sovereignty</span>
-                <span class="rspec-val">Designed for in-region data residency</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Architecture</span>
-                <span class="rspec-val">NVIDIA SXM &nbsp;·&nbsp; NDR InfiniBand (target)</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Availability</span>
-                <span class="rspec-val">Announced as capacity becomes operational</span>
+                <span class="rspec-val">Directional only</span>
               </div>
             </div>
           </div>
         </article>
       </div>
-    </div>
-  </section>
 
-  <!-- ── 03 / PLATFORM ───────────────────────────────────── -->
-  <section id="platform" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-num mono">03 / Platform</div>
-        <div>
-          <h2 class="section-title">What runs on top.</h2>
-          <p class="section-sub">A managed platform layer for training, inference, and agent runtimes. Bring your model — or pick from open-weight families we keep ready.</p>
-        </div>
+      <div class="sub-head">
+        <h3>Business evolution</h3>
+        <p>Where the company is today, and the direction it is building toward. The distinction matters — everything to the right of "today" is intent, not inventory.</p>
       </div>
 
-      <div class="grid-3 is-4col">
-        <div class="card">
-          <div class="card-label mono">03.1 — Serving</div>
-          <h3 class="card-title">Managed Inference</h3>
-          <p class="card-body">vLLM and TensorRT-LLM backends, autoscaling endpoints, batching, speculative decoding. Open and closed models.</p>
+      <div class="loop">
+        <div class="lstage">
+          <div class="ls-num mono">Today</div>
+          <div class="ls-name">Delivery + platform</div>
+          <div class="ls-owner">AI infrastructure project delivery, and the AI infrastructure management platform in development.</div>
         </div>
-        <div class="card">
-          <div class="card-label mono">03.2 — Training</div>
-          <h3 class="card-title">Training Orchestration</h3>
-          <p class="card-body">Slurm + Kubernetes (Volcano) job queues. Multi-node DDP, FSDP, checkpoint streaming, automatic restart on node loss.</p>
+        <div class="lstage is-loop">
+          <div class="ls-num mono">Next</div>
+          <div class="ls-name">Managed operations</div>
+          <div class="ls-owner">Managed AI infrastructure operations on behalf of customers.</div>
         </div>
-        <div class="card">
-          <div class="card-label mono">03.3 — Agents</div>
-          <h3 class="card-title">Agent Runtime</h3>
-          <p class="card-body">Multi-agent coordination, tool use, persistent memory, retrieval. Observability built in — every call traced end-to-end.</p>
+        <div class="lstage is-loop">
+          <div class="ls-num mono">Then</div>
+          <div class="ls-name">Leased capacity</div>
+          <div class="ls-owner">Partner and leased compute capacity, offered once it can actually be supplied.</div>
         </div>
-        <div class="card">
-          <div class="card-label mono">03.4 — Models</div>
-          <h3 class="card-title">Model Registry</h3>
-          <p class="card-body">Versioned models, fine-tune pipelines, evaluation harnesses. Promote checkpoints from experiment to prod with audit trail.</p>
+        <div class="lstage is-loop">
+          <div class="ls-num mono">Long term</div>
+          <div class="ls-name">Operated infrastructure</div>
+          <div class="ls-owner">KAazi-developed and operated AI compute infrastructure.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 03 / SERVICES ───────────────────────────────────── -->
-  <section id="services" class="section">
+  <!-- ── 08 / INTEGRATIONS ───────────────────────────────── -->
+  <section id="integrations" class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num mono">04 / Services</div>
+        <div class="section-num mono">08 / Integrations</div>
         <div>
-          <h2 class="section-title">What we build for you.</h2>
-          <p class="section-sub">Beyond infrastructure: the team that designs the model, the agent, and the system that ships them. End-to-end engagements, scoped to outcome.</p>
-        </div>
-      </div>
-
-      <div class="grid-3 is-4col">
-        <div class="card">
-          <div class="card-label mono">04.1 — Fine-Tuning</div>
-          <h3 class="card-title">Custom Models</h3>
-          <p class="card-body">Domain LoRA or full fine-tune on open-weight bases (Llama, Mistral, Qwen). Evaluation harness, hosted or self-served.</p>
-        </div>
-        <div class="card">
-          <div class="card-label mono">04.2 — Agents</div>
-          <h3 class="card-title">Agent Engineering</h3>
-          <p class="card-body">Bespoke agent systems engineered for your operations. Multi-step planning, tool use, structured outputs, real-world action.</p>
-        </div>
-        <div class="card">
-          <div class="card-label mono">04.3 — Software</div>
-          <h3 class="card-title">AI-Native Apps</h3>
-          <p class="card-body">Full-stack products where AI is the architecture, not a bolt-on. Shipped to production, on our infra or yours.</p>
-        </div>
-        <div class="card">
-          <div class="card-label mono">04.4 — Advisory</div>
-          <h3 class="card-title">Strategy &amp; Architecture</h3>
-          <p class="card-body">Where AI gives leverage, what to build, what to buy, what to skip. For teams without an in-house frontier AI lead.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 04 / WHY KAAZI ──────────────────────────────────── -->
-  <section id="why" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-num mono">05 / Why</div>
-        <div>
-          <h2 class="section-title">A different shape of AI infrastructure company.</h2>
-          <p class="section-sub">Most providers stop at the rack. We own the layer above too — and we use it ourselves.</p>
-        </div>
-      </div>
-
-      <div class="grid-3 is-4col">
-        <div class="card">
-          <div class="card-label mono">— 01</div>
-          <h3 class="card-title">Full stack.</h3>
-          <p class="card-body">Rack, platform, models, agents — one team, one accountability. No finger-pointing between infra vendor and AI vendor when something breaks.</p>
-        </div>
-        <div class="card">
-          <div class="card-label mono">— 02</div>
-          <h3 class="card-title">Multi-region by design.</h3>
-          <p class="card-body">Architected multi-region from the first rack. Latency-routed inference, data-sovereign training, failover that doesn't require a re-architecture.</p>
-        </div>
-        <div class="card">
-          <div class="card-label mono">— 03</div>
-          <h3 class="card-title">Production-grade.</h3>
-          <p class="card-body">Built for SLOs, not demos. Observable, debuggable, durable. We page on what matters — and we share the runbook.</p>
-        </div>
-        <div class="card">
-          <div class="card-label mono">— 04</div>
-          <h3 class="card-title">Open-weight friendly.</h3>
-          <p class="card-body">No vendor lock-in to a single model family. Run Llama, Mistral, Qwen, or your own fine-tune — same platform, same orchestration.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 05 / SCALE ──────────────────────────────────────── -->
-  <section id="scale" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-num mono">06 / Scale</div>
-        <div>
-          <h2 class="section-title">Reference architecture — a multi-region cluster, orchestrated by agents.</h2>
-          <p class="section-sub">The design we are building toward: a training and inference deployment spanning multiple regions, with an autonomous control plane that routes workloads, recovers from node loss, and rebalances under shifting load.</p>
-        </div>
-      </div>
-
-      <div class="scale-block mono">
-        <div class="scale-stat">
-          <div class="figure">03</div>
-          <div class="label">Roadmap Regions</div>
-        </div>
-        <div class="scale-stat">
-          <div class="figure">N<span class="accent"> + 1</span></div>
-          <div class="label">Control-Plane Redundancy</div>
-        </div>
-        <div class="scale-stat">
-          <div class="figure">400<span class="accent"> Gb</span></div>
-          <div class="label">Target Node Fabric</div>
-        </div>
-        <div class="scale-stat">
-          <div class="figure">0<span class="accent"> → 1</span></div>
-          <div class="label">Self-Recovery</div>
-        </div>
-      </div>
-
-      <div class="scale-steps">
-        <div class="step">
-          <div class="num mono">01 / Constraint</div>
-          <h4>Multi-region routing at scale.</h4>
-          <p>Traditional orchestrators assume single-AZ topology. As cluster size grows across regions, scheduling latency and cascading failures become the bottleneck — not compute.</p>
-        </div>
-        <div class="step">
-          <div class="num mono">02 / Approach</div>
-          <h4>Agent-led control plane.</h4>
-          <p>Coordinated agents observe traffic, learn workload patterns, predict load, and route between regions in real time. The control plane is itself an AI system running on the cluster.</p>
-        </div>
-        <div class="step">
-          <div class="num mono">03 / Design outcome</div>
-          <h4>Autonomous, durable, observable.</h4>
-          <p>Designed to self-heal on node loss without operator action and to re-balance continuously. Every decision stays traceable — and the model behind it sits on the registry, like any other.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 06 / STACK ──────────────────────────────────────── -->
-  <section id="stack" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-num mono">07 / Stack</div>
-        <div>
-          <h2 class="section-title">The full stack, in plain sight.</h2>
-          <p class="section-sub">No mystery box. Here is what runs underneath everything we ship.</p>
+          <h2 class="section-title">Built to integrate with the infrastructure you already use.</h2>
+          <p class="section-sub">KAazi is designed around open infrastructure interfaces rather than a closed stack. The systems below are the integration targets the platform is being built against — not completed, production-supported integrations.</p>
         </div>
       </div>
 
       <div class="stack-sheet">
         <div class="stack-row">
-          <div class="stack-key">Compute</div>
+          <div class="stack-key">Accelerators</div>
           <div class="stack-val">
-            <span class="tag">NVIDIA H100 SXM</span>
-            <span class="tag">H200</span>
-            <span class="tag">GB200 NVL72</span>
-            <span class="tag">A100 (legacy)</span>
+            <span class="tag">NVIDIA</span>
+            <span class="tag">AMD (roadmap)</span>
+            <span class="tag">Intel (roadmap)</span>
           </div>
         </div>
         <div class="stack-row">
-          <div class="stack-key">Networking</div>
+          <div class="stack-key">Telemetry</div>
           <div class="stack-val">
-            <span class="tag">NDR InfiniBand 400 Gbps</span>
-            <span class="tag">RoCEv2</span>
-            <span class="tag">RDMA-everywhere</span>
-            <span class="tag">SR-IOV</span>
+            <span class="tag">NVIDIA DCGM</span>
+            <span class="tag">Prometheus</span>
+            <span class="tag">OpenTelemetry</span>
           </div>
         </div>
         <div class="stack-row">
-          <div class="stack-key">Storage</div>
+          <div class="stack-key">Server management</div>
           <div class="stack-val">
-            <span class="tag">NVMe-oF</span>
-            <span class="tag">Lustre</span>
-            <span class="tag">WekaFS</span>
-            <span class="tag">S3-compatible object</span>
+            <span class="tag">Redfish</span>
+            <span class="tag">BMC / IPMI</span>
+            <span class="tag">Vendor OOB tooling</span>
           </div>
         </div>
         <div class="stack-row">
           <div class="stack-key">Orchestration</div>
           <div class="stack-val">
             <span class="tag">Kubernetes</span>
-            <span class="tag">Volcano</span>
             <span class="tag">Slurm</span>
-            <span class="tag">custom operators</span>
           </div>
         </div>
         <div class="stack-row">
-          <div class="stack-key">Inference</div>
+          <div class="stack-key">IT operations</div>
           <div class="stack-val">
-            <span class="tag">vLLM</span>
-            <span class="tag">TensorRT-LLM</span>
-            <span class="tag">SGLang</span>
-            <span class="tag">Triton</span>
+            <span class="tag">ServiceNow</span>
+            <span class="tag">CMDB</span>
+            <span class="tag">DCIM</span>
           </div>
         </div>
         <div class="stack-row">
-          <div class="stack-key">Training</div>
+          <div class="stack-key">Environments</div>
           <div class="stack-val">
-            <span class="tag">PyTorch FSDP</span>
-            <span class="tag">DeepSpeed</span>
-            <span class="tag">Megatron-LM</span>
-            <span class="tag">HF Accelerate</span>
-          </div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-key">Models</div>
-          <div class="stack-val">
-            <span class="tag">Llama</span>
-            <span class="tag">Mistral</span>
-            <span class="tag">Qwen</span>
-            <span class="tag">DeepSeek</span>
-            <span class="tag">custom fine-tunes</span>
-          </div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-key">Observability</div>
-          <div class="stack-val">
-            <span class="tag">Prometheus</span>
-            <span class="tag">Grafana</span>
-            <span class="tag">OpenTelemetry</span>
-            <span class="tag">Loki</span>
-            <span class="tag">custom telemetry</span>
+            <span class="tag">Cloud GPU APIs</span>
+            <span class="tag">Private clusters</span>
+            <span class="tag">Colocation</span>
+            <span class="tag">On-premise</span>
           </div>
         </div>
       </div>
+      <p class="sheet-cap">Integration roadmap — designed for, not yet formally supported.</p>
     </div>
   </section>
 
-  <!-- ── 07 / TEAM ───────────────────────────────────────── -->
+  <!-- ── 09 / TEAM ───────────────────────────────────────── -->
   <section id="team" class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num mono">08 / Team</div>
+        <div class="section-num mono">09 / Company</div>
         <div>
           <h2 class="section-title">Operators, not slideware.</h2>
-          <p class="section-sub">A small team with the rare overlap of deep AI infrastructure experience and frontier model engineering.</p>
+          <p class="section-sub">A small founding team with direct experience in data centers, infrastructure program delivery and the operational side of compute.</p>
         </div>
       </div>
 
@@ -1707,29 +2161,29 @@
           <div class="person-avatar"><img src="images/ayobami.jpg" alt="Ayobami Awoyinfa" width="72" height="72" loading="lazy" decoding="async" /></div>
           <div class="person-role mono">CEO</div>
           <h3>Ayobami Awoyinfa</h3>
-          <p>12+ years in data centers, networking, and AI infrastructure program operations. Sets direction across the rack-to-agent stack. Building the AI infrastructure layer Africa and the world needs — GPU clusters, models, agents, full stack.</p>
+          <p>12+ years in data centers, networking, and infrastructure program operations. Sets direction across project delivery and the platform — building the layer that tells organizations what AI compute they have and how it is actually doing.</p>
         </div>
         <div class="person">
           <div class="person-avatar mono">TO</div>
           <div class="person-role mono">CFO</div>
           <h3>Timothy Oke</h3>
-          <p>Architects the financial backbone — capital strategy, runway, and the unit economics of compute.</p>
+          <p>Architects the financial backbone — capital strategy, runway, and the unit economics of compute infrastructure.</p>
         </div>
         <div class="person">
           <div class="person-avatar mono">AA</div>
           <div class="person-role mono">CTO</div>
           <h3>Afeez Adeyemo</h3>
-          <p>Leads engineering — infrastructure, platform, and the model layer. Owns the technical bets KAazi makes.</p>
+          <p>Leads engineering on the KAazi platform — the data model, integrations and the operational record beneath them. Owns the technical bets KAazi makes.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 08 / FAQ ────────────────────────────────────────── -->
+  <!-- ── 10 / FAQ ────────────────────────────────────────── -->
   <section id="faq" class="section">
     <div class="wrap-tight">
       <div class="section-head">
-        <div class="section-num mono">09 / FAQ</div>
+        <div class="section-num mono">10 / FAQ</div>
         <div>
           <h2 class="section-title">Questions worth asking up front.</h2>
         </div>
@@ -1737,54 +2191,74 @@
 
       <div class="faq">
         <details>
-          <summary>What workloads run well on KAazi?</summary>
-          <p>Frontier model training, large-scale fine-tuning, low-latency inference, agent runtimes, and AI-native applications. Anywhere you need NVIDIA GPUs at non-toy scale with RDMA fabric beneath them.</p>
+          <summary>What is KAazi?</summary>
+          <p>An AI compute infrastructure company with two connected businesses. The first is AI infrastructure project delivery — helping organizations plan, coordinate, deploy and commission the infrastructure AI compute runs on. The second is the KAazi platform, which is being built to manage those compute assets, their capacity, health, maintenance and lifecycle once they are running.</p>
         </details>
         <details>
-          <summary>Do you operate your own data centers, or use partner facilities?</summary>
-          <p>Hybrid. We operate inside Tier-III colocation facilities with our own rack designs, networking, and orchestration stack. The hardware and software above the floor tiles are ours.</p>
+          <summary>Does KAazi sell GPU compute today?</summary>
+          <p>No. KAazi does not own or operate compute infrastructure, and there is no capacity to purchase. Leased and KAazi-operated compute appear on the long-term roadmap, and we will say so plainly when that changes.</p>
         </details>
         <details>
-          <summary>Can we bring our own model weights?</summary>
-          <p>Yes. Open-weight or proprietary. We deploy what you ship, keep it isolated, and never train on your weights or your data.</p>
+          <summary>Where is the platform today?</summary>
+          <p>In development. Asset, capacity and health intelligence are the first capabilities being built; maintenance operations, lifecycle management and economics follow. The dashboard shown on this page is a product mockup with illustrative figures, not a live customer environment. We are talking to design partners.</p>
         </details>
         <details>
-          <summary>How do you handle data sovereignty across regions?</summary>
-          <p>Residency is a design requirement, not an add-on. As each region comes online, workloads pin to the region you choose, cross-region replication stays explicit, controlled by you, and auditable, and each region runs an independent control plane that can operate standalone.</p>
+          <summary>What is the Compute Passport?</summary>
+          <p>A persistent digital operational record for an individual compute asset — its identity, serial and UUID, where it sits down to the rack and slot, its health history, utilization, incidents, maintenance, warranty and RMA history, operating hours and lifecycle status. The idea is that an accelerator's history travels with it, instead of living in a spreadsheet somebody left behind. It is a product concept in development.</p>
         </details>
         <details>
-          <summary>What's the engagement model — hourly, reserved, dedicated?</summary>
-          <p>All three. On-demand for spiky workloads, reserved capacity for predictable production, dedicated clusters for teams that need isolation and tuned topology. Talk to us about scope and we'll structure it.</p>
+          <summary>Does KAazi replace NVIDIA Mission Control or Run:ai?</summary>
+          <p>No. Those schedule and orchestrate workloads on compute. KAazi is not a GPU scheduler and does not run your jobs. It is the system of record for the infrastructure itself — what exists, where, in what condition, and through what lifecycle. It is designed to sit alongside your scheduler, not in front of it.</p>
         </details>
         <details>
-          <summary>How does KAazi compare to AWS, GCP, or CoreWeave?</summary>
-          <p>The hyperscalers give you compute. CoreWeave-class providers give you GPU-focused compute. We give you compute plus the platform and the AI team — so a single accountable provider can take you from procurement to production model.</p>
+          <summary>Is this a DCIM, BMS or CMDB replacement?</summary>
+          <p>No. DCIM and BMS manage the facility; a CMDB manages IT configuration broadly. KAazi is focused specifically on AI compute — accelerator-level assets, usable capacity and lifecycle — and is designed to integrate with those systems rather than replace them.</p>
+        </details>
+        <details>
+          <summary>Does KAazi provide physical deployment?</summary>
+          <p>KAazi coordinates, manages and oversees deployment. Physical execution is delivered through qualified partners — OEMs, integrators, colocation remote-hands teams, or the customer's own staff — chosen for the site. Licensed engineering disciplines are delivered by appropriately qualified firms, not performed in-house.</p>
+        </details>
+        <details>
+          <summary>Can KAazi work with our existing infrastructure vendors?</summary>
+          <p>Yes, and that is the intent. KAazi is vendor-neutral and does not resell hardware. We coordinate across whichever OEMs, integrators and service providers you already work with, and the platform is being designed to read from the systems you already run.</p>
+        </details>
+        <details>
+          <summary>Does KAazi support private and on-premise infrastructure?</summary>
+          <p>That is the primary case. The platform is being designed for private clusters, colocation and on-premise environments, with cloud GPU environments included so a mixed estate can be seen in one place.</p>
+        </details>
+        <details>
+          <summary>What types of infrastructure can KAazi manage?</summary>
+          <p>AI compute estates: accelerators, servers, racks, clusters and sites, along with the operational context around them — capacity state, health, incidents, maintenance, warranty and lifecycle. NVIDIA accelerators are the initial focus, with other vendors on the roadmap.</p>
+        </details>
+        <details>
+          <summary>How does KAazi approach security?</summary>
+          <p>The platform is being designed to read infrastructure telemetry and asset state, not customer workloads, model weights or data. Least-privilege, read-only integration wherever possible, with customer-controlled scope. Detailed security documentation will be published alongside the first release rather than claimed in advance.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ── 09 / CONTACT ────────────────────────────────────── -->
+  <!-- ── 11 / CONTACT ────────────────────────────────────── -->
   <section id="contact" class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num mono">10 / Contact</div>
+        <div class="section-num mono">11 / Contact</div>
         <div>
-          <h2 class="section-title">Tell us what you're shipping.</h2>
-          <p class="section-sub">Capacity request, custom build, or just an early conversation — same form, same inbox.</p>
+          <h2 class="section-title">Talk to KAazi.</h2>
+          <p class="section-sub">An infrastructure project, a platform pilot, or an early conversation — same form, same inbox.</p>
         </div>
       </div>
 
       <div class="contact-grid">
         <div class="contact-info">
-          <p>Whether it's a fine-tune, a reserved cluster, or an early conversation about capacity as regions come online, start here. We reply within one business day.</p>
+          <p>Whether you are scoping an AI infrastructure build, trying to get an accurate picture of compute you already own, or interested in being a design partner on the platform, start here. We reply within one business day.</p>
           <div class="info-row">
             <span class="info-key mono">Sales</span>
             <span class="info-val">sales@kaazidevs.com</span>
           </div>
           <div class="info-row">
-            <span class="info-key mono">Roadmap Regions</span>
-            <span class="info-val">US &nbsp;·&nbsp; Nigeria &nbsp;·&nbsp; Southern Africa</span>
+            <span class="info-key mono">Engagements</span>
+            <span class="info-val">Project delivery &nbsp;·&nbsp; Platform pilots</span>
           </div>
           <div class="info-row">
             <span class="info-key mono">Response</span>
@@ -1814,11 +2288,23 @@
             <input id="cf-email" name="email" type="email" placeholder="jane@acme.ai" required />
           </div>
           <div class="field">
-            <label for="cf-msg" class="mono">What are you building?</label>
-            <textarea id="cf-msg" name="message" rows="4" placeholder="GPU count, workload type, timeline, or just say hi…" required></textarea>
+            <label for="cf-reason" class="mono">What is this about?</label>
+            <select id="cf-reason" name="reason" required>
+              <option value="" disabled selected>Select one…</option>
+              <option>AI infrastructure project</option>
+              <option>KAazi platform</option>
+              <option>Design partner / pilot</option>
+              <option>Partnership</option>
+              <option>Infrastructure operations</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-msg" class="mono">Tell us more</label>
+            <textarea id="cf-msg" name="message" rows="4" placeholder="Scope, site, timeline, or the estate you're trying to get visibility on…" required></textarea>
           </div>
 
-          <button type="submit" id="submit-btn">Send inquiry <span aria-hidden="true">→</span></button>
+          <button type="submit" id="submit-btn">Talk to KAazi <span aria-hidden="true">→</span></button>
           <div id="form-status" class="form-status mono" aria-live="polite"></div>
         </form>
       </div>
@@ -1836,7 +2322,7 @@
             <span class="nav-brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect class="ink-fill" x="8" y="4" width="4" height="24"/><polygon class="ink-fill" points="12,12 26,4 26,8 12,16"/><polygon class="accent-fill" points="12,16 26,24 26,28 12,20"/></svg></span>
             <span>KAazi Solutions</span>
           </a>
-          <p class="tagline">GPU infrastructure and the AI platform, models, and agents that run on top of it.</p>
+          <p class="tagline">KAazi builds and manages the infrastructure behind AI — combining AI compute infrastructure project delivery with a platform for managing compute assets, capacity, health, maintenance and lifecycle.</p>
           <div class="social" style="margin-top: 24px;">
             <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.3 18v-9H5.7v9h2.6zM7 7.7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.3 18v-4.9c0-2.5-1.3-3.6-3.1-3.6-1.5 0-2.1.8-2.5 1.4V9h-2.6v9h2.6v-4.9c0-.2 0-.5.1-.6.2-.5.7-1 1.5-1 1.1 0 1.5.8 1.5 2v4.5h2.5z"/></svg></a>
             <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg></a>
@@ -1844,29 +2330,30 @@
           </div>
         </div>
         <div>
-          <h5>Stack</h5>
+          <h5>Product</h5>
           <ul>
-            <li><a href="#nodes">Infrastructure</a></li>
-            <li><a href="#regions">Regions</a></li>
             <li><a href="#platform">Platform</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#stack">Tech stack</a></li>
+            <li><a href="#platform">Compute Passport</a></li>
+            <li><a href="#integrations">Integrations</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#delivery">Project Delivery</a></li>
+            <li><a href="#what">Plan · Deliver · Manage</a></li>
+            <li><a href="#lifecycle">How It Works</a></li>
+            <li><a href="#why">Why KAazi</a></li>
           </ul>
         </div>
         <div>
           <h5>Company</h5>
           <ul>
-            <li><a href="#why">Why KAazi</a></li>
-            <li><a href="#scale">Scale</a></li>
             <li><a href="#team">Team</a></li>
+            <li><a href="#vision">Infrastructure Vision</a></li>
             <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Contact</h5>
-          <ul>
-            <li><a href="#contact">Request compute</a></li>
-            <li><a href="mailto:sales@kaazidevs.com">sales@kaazidevs.com</a></li>
+            <li><a href="#contact">Talk to KAazi</a></li>
           </ul>
         </div>
       </div>
