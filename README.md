@@ -35,7 +35,9 @@ The site must not claim infrastructure that is not operational. Specifically, av
 - specific GPU counts, uptime percentages, MW capacity, or latency figures
 - customer logos
 
-Regions are presented as a **roadmap** — United States, Nigeria, Southern Africa — with availability "announced as capacity becomes operational."
+**No named markets, sites, regions or locations.** KAazi is new and owns no infrastructure, so the site names none. The Infrastructure Vision section states the direction and the criteria — power, connectivity, real customer demand — and nothing more. Markets get named when there is something in them.
+
+The same rule applies to product mockups and imagery: no real city names, no site counts, no dollar figures, no founder names or titles inside screenshots. Generic labels only (`SITE-01`, `RACK B-14`).
 
 ## Workflow
 

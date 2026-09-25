@@ -419,145 +419,6 @@
     @media (min-width: 700px) { .grid-3.is-4col { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1024px) { .grid-3.is-4col { grid-template-columns: repeat(4, 1fr); } }
 
-    /* ─── Regions section ────────────────────────────────── */
-    .region-arc {
-      position: relative;
-      height: 56px;
-      margin-bottom: 56px;
-      border-bottom: 1px solid var(--rule);
-    }
-    .region-arc::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 1px;
-      background: linear-gradient(to right,
-        transparent 0%,
-        var(--rule-mid) 18%,
-        var(--rule-mid) 82%,
-        transparent 100%);
-    }
-    .ra-tick {
-      position: absolute;
-      bottom: 0;
-      transform: translateX(-50%);
-      padding-bottom: 14px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: var(--text-soft);
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .ra-tick::after {
-      content: "";
-      position: absolute;
-      bottom: -3px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-    }
-    .ra-tick .ra-city {
-      display: block;
-      margin-top: 6px;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      color: var(--text-dim);
-    }
-
-    .regions {
-      border-top: 1px solid var(--rule);
-    }
-    .region {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-      padding: 56px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-    .region:last-child { border-bottom: none; }
-    @media (min-width: 900px) {
-      .region {
-        grid-template-columns: 280px 1fr;
-        gap: 80px;
-        padding: 72px 0;
-      }
-    }
-    .region-mark {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .region-dot {
-      width: 9px;
-      height: 9px;
-      background: var(--accent);
-      display: inline-block;
-      animation: livepulse 1.8s ease-in-out infinite;
-    }
-    .region-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 56px;
-      font-weight: 500;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      line-height: 1;
-    }
-    @media (min-width: 900px) {
-      .region-label { font-size: 72px; }
-    }
-    .region-body { display: grid; gap: 22px; }
-    .region-cities {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
-      text-transform: uppercase;
-    }
-    .region-tagline {
-      font-size: 18px;
-      color: var(--text);
-      max-width: 580px;
-      line-height: 1.45;
-    }
-    .region-specs {
-      display: grid;
-      gap: 0;
-      margin-top: 8px;
-    }
-    .rspec {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 4px;
-      padding: 14px 0;
-      border-top: 1px solid var(--rule);
-    }
-    .rspec:last-child { border-bottom: 1px solid var(--rule); }
-    @media (min-width: 700px) {
-      .rspec {
-        grid-template-columns: 160px 1fr;
-        gap: 32px;
-        padding: 16px 0;
-      }
-    }
-    .rspec-key {
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text-dim);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-size: 11px;
-    }
-    .rspec-val {
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text);
-      font-size: 13px;
-    }
-    .rspec-val .accent { color: var(--accent); }
-
     .card {
       background: var(--bg);
       padding: 36px 32px;
@@ -2076,104 +1937,15 @@
         <div class="section-num mono">07 / Vision</div>
         <div>
           <h2 class="section-title">Infrastructure Vision</h2>
-          <p class="section-sub">KAazi's long-term roadmap includes developing and operating AI compute infrastructure in strategic markets as the company expands beyond software and project delivery. KAazi does not own or operate compute infrastructure today.</p>
+          <p class="section-sub">KAazi does not own or operate compute infrastructure today, and has no sites. Longer term, the roadmap includes developing and operating AI compute infrastructure — where power, connectivity and real customer demand align, rather than wherever looks impressive on a map. We will name markets when there is something in them.</p>
         </div>
-      </div>
-
-      <!-- thin "world line" — rough longitudinal position of each market -->
-      <div class="region-arc" aria-hidden="true">
-        <span class="ra-tick" style="left: 16%;">US<span class="ra-city">Primary market</span></span>
-        <span class="ra-tick" style="left: 50%;">NG<span class="ra-city">Development opportunity</span></span>
-        <span class="ra-tick" style="left: 84%;">AFR<span class="ra-city">Long-term expansion</span></span>
-      </div>
-
-      <div class="regions">
-        <article class="region">
-          <div class="region-mark">
-            <span class="region-dot" aria-hidden="true"></span>
-            <span class="region-label">US</span>
-          </div>
-          <div class="region-body">
-            <div class="region-cities mono">United States &nbsp;·&nbsp; Primary commercial market</div>
-            <p class="region-tagline">The primary commercial and operating market — where the platform is being built for, and where project delivery work is focused first.</p>
-            <div class="region-specs">
-              <div class="rspec">
-                <span class="rspec-key">Today</span>
-                <span class="rspec-val">Project delivery &nbsp;<span class="accent">/</span>&nbsp; platform development</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Longer term</span>
-                <span class="rspec-val">KAazi-developed AI compute infrastructure</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Status</span>
-                <span class="rspec-val">No KAazi-operated infrastructure today</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="region">
-          <div class="region-mark">
-            <span class="region-dot" aria-hidden="true"></span>
-            <span class="region-label">NG</span>
-          </div>
-          <div class="region-body">
-            <div class="region-cities mono">Nigeria &nbsp;·&nbsp; Development opportunity</div>
-            <p class="region-tagline">A future AI infrastructure development opportunity, driven by demand for in-country compute and the team's operating history in the market.</p>
-            <div class="region-specs">
-              <div class="rspec">
-                <span class="rspec-key">Today</span>
-                <span class="rspec-val">Advisory &nbsp;<span class="accent">/</span>&nbsp; project delivery engagements</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Longer term</span>
-                <span class="rspec-val">AI infrastructure development, subject to power and connectivity</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Status</span>
-                <span class="rspec-val">Opportunity under assessment</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="region">
-          <div class="region-mark">
-            <span class="region-dot" aria-hidden="true"></span>
-            <span class="region-label">AFR</span>
-          </div>
-          <div class="region-body">
-            <div class="region-cities mono">Africa &amp; other regions &nbsp;·&nbsp; Long-term expansion</div>
-            <p class="region-tagline">Long-term expansion aligned with power availability, connectivity and real customer demand — not with a map that looks impressive on a slide.</p>
-            <div class="region-specs">
-              <div class="rspec">
-                <span class="rspec-key">Today</span>
-                <span class="rspec-val">None</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Longer term</span>
-                <span class="rspec-val">Expansion where power, connectivity and demand align</span>
-              </div>
-              <div class="rspec">
-                <span class="rspec-key">Status</span>
-                <span class="rspec-val">Directional only</span>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="sub-head">
-        <h3>Business evolution</h3>
-        <p>Where the company is today, and the direction it is building toward. The distinction matters — everything to the right of "today" is intent, not inventory.</p>
       </div>
 
       <div class="loop">
         <div class="lstage">
           <div class="ls-num mono">Today</div>
           <div class="ls-name">Delivery + platform</div>
-          <div class="ls-owner">AI infrastructure project delivery, and the AI infrastructure management platform in development.</div>
+          <div class="ls-owner">AI infrastructure project delivery, and the AI infrastructure management platform in development. This is the whole of the company today.</div>
         </div>
         <div class="lstage is-loop">
           <div class="ls-num mono">Next</div>
@@ -2191,6 +1963,7 @@
           <div class="ls-owner">KAazi-developed and operated AI compute infrastructure.</div>
         </div>
       </div>
+      <p class="sheet-cap">Everything beyond "today" is intent, not inventory. None of it is built.</p>
     </div>
   </section>
 
