@@ -1024,10 +1024,10 @@
     .mockup-note, .sheet-cap {
       margin-top: 16px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-dim);
+      color: var(--text-soft);
     }
 
     /* ─── Sub-heads inside a section ─────────────────────── */
@@ -1148,6 +1148,13 @@
     }
     .partner .card-list { flex-grow: 0; }
     .partner-cta { margin-top: 40px; }
+    .partner-note {
+      margin-top: 20px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-soft);
+      max-width: 560px;
+    }
 
   </style>
 </head>
@@ -1791,15 +1798,41 @@
             <div class="partner-col-key mono">What we ask</div>
             <ul class="card-list">
               <li>An AI compute estate we can work against — any size</li>
-              <li>About an hour a fortnight for honest feedback</li>
-              <li>Read-only access to the systems you already run</li>
+              <li>About an hour every two weeks for honest feedback</li>
+              <li>Openness to connecting read-only to systems you already run, when the time comes</li>
               <li>Patience with a product that is still being built</li>
             </ul>
           </div>
         </div>
 
         <a href="#contact" class="btn-primary partner-cta">Apply as a design partner <span>→</span></a>
+        <p class="partner-note">It starts with a conversation about your estate — no system access, no commitment and no procurement required to talk.</p>
       </div>
+
+      <div class="sub-head">
+        <h3>How access works</h3>
+        <p>The platform is built to read the state of infrastructure, not the work running on it. That boundary is a design constraint, not a setting.</p>
+      </div>
+
+      <div class="stack-sheet">
+        <div class="stack-row">
+          <div class="stack-key">What it reads</div>
+          <div class="stack-val">Infrastructure telemetry and asset state — accelerator, server, cluster, rack and site inventory, health, and utilization metrics.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">What it does not</div>
+          <div class="stack-val">Workloads, model weights, training data, customer data, and the content of anything running on the infrastructure.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Access model</div>
+          <div class="stack-val">Read-only and least-privilege wherever the source system supports it. You choose what is connected, and you can disconnect it.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-key">Deployment</div>
+          <div class="stack-val">Designed for private clusters, colocation and on-premise environments, so infrastructure data does not have to leave estates that cannot let it.</div>
+        </div>
+      </div>
+      <p class="sheet-cap">Formal security documentation will be published alongside the first release, rather than claimed in advance.</p>
     </div>
   </section>
 
