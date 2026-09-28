@@ -65,6 +65,12 @@ Don't open `index.html` over `file://` — the CSP behaves differently there and
 msedge --headless=new --window-size=1200,630 --screenshot=og-image.png wrapper.html
 ```
 
+## Photography and plates
+
+`images/lifecycle-*.webp` is the Project Delivery plate — an illustration of the build sequence (land acquisition → site planning → site development → power infrastructure → AI compute deployment). It carries its own labels and its own "Illustrative, not a KAazi site" caption, so it is presented as a plain figure under the section head, never with text scrimmed over it.
+
+It is the one place the site departs from the single-accent palette, deliberately: the callouts are colour-coded by stage. Derived at 1840 / 1400 / 1000 / 760 wide, WebP quality 78-80 — higher than the photographs because baked-in label text falls apart below that. Below 900px the plate scrolls horizontally at a fixed 940px width, with a visible hint, because the labels are illegible scaled to a phone.
+
 ## Photography
 
 `images/datahall-*.webp` is a full-bleed band opening the Project Delivery section. Source is an AI-generated data hall (not a KAazi facility, and captioned as such on the page).

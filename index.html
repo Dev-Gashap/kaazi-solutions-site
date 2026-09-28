@@ -1254,6 +1254,7 @@
       background: var(--bg);
     }
     @media (min-width: 900px) { .band { min-height: 660px; } }
+    .section-band .band-img { object-position: 64% 50%; }
     .band-img {
       position: absolute;
       inset: 0;
@@ -1298,6 +1299,15 @@
           rgba(11, 12, 15, 0.90) 42%,
           rgba(11, 12, 15, 0.94) 100%);
       }
+      /* the survey scene is darker than the corridor; frame it on the
+         substation and lift the scrim or it reads as a black box */
+      .section-band .band-img { object-position: 84% 46%; }
+      .section-band .band::before {
+        background: linear-gradient(180deg,
+          rgba(11, 12, 15, 0.42) 0%,
+          rgba(11, 12, 15, 0.82) 38%,
+          rgba(11, 12, 15, 0.92) 100%);
+      }
     }
     .band-copy {
       position: relative;
@@ -1339,6 +1349,45 @@
       letter-spacing: -0.022em;
       line-height: 1.24;
       color: var(--text);
+    }
+
+    /* ─── Lifecycle plate ─────────────────────── */
+    .plate {
+      position: relative;
+      margin: 0 0 72px;
+      padding: 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    /* the artwork is bright and the page is near-black; soften both seams
+       without covering the caption baked into the top-left of the image */
+    .plate::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg,
+        rgba(11, 12, 15, 0.55) 0%,
+        rgba(11, 12, 15, 0) 9%,
+        rgba(11, 12, 15, 0) 88%,
+        rgba(11, 12, 15, 0.72) 100%);
+    }
+    .plate-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .plate img { display: block; width: 100%; height: auto; }
+    .plate-hint { display: none; }
+
+    @media (max-width: 899px) {
+      /* labels are unreadable scaled to a phone, so the plate scrolls -
+         say so rather than leaving people to discover it */
+      .plate img { width: 940px; max-width: none; }
+      .plate-hint {
+        display: block;
+        padding: 10px 16px 0;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+      }
     }
 
   </style>
@@ -2141,24 +2190,30 @@
   </section>
 
   <!-- ── 03 / PROJECT DELIVERY ───────────────────────────── -->
-  <section id="delivery" class="section section-band">
-    <div class="band">
-      <picture>
-        <source type="image/webp"
-                srcset="images/datahall-800.webp 800w, images/datahall-1200.webp 1200w, images/datahall-1672.webp 1672w"
-                sizes="100vw" />
-        <img class="band-img" src="images/datahall-1200.jpg" alt="A data hall aisle lined with GPU racks."
-             width="1672" height="941" loading="lazy" decoding="async" />
-      </picture>
-      <div class="band-copy">
-        <div class="wrap">
-          <div class="section-num mono">03 / Project delivery</div>
+  <section id="delivery" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-num mono">03 / Project delivery</div>
+        <div>
           <h2 class="section-title">Build the infrastructure behind AI.</h2>
           <p class="section-sub">KAazi helps organizations take AI infrastructure projects from requirements through deployment and operational readiness — coordinating the vendors, the site and the sequence, and handing over infrastructure that is documented and ready to run.</p>
         </div>
       </div>
-      <span class="band-cap mono">Illustrative · not a KAazi facility</span>
     </div>
+
+    <figure class="plate">
+      <div class="plate-scroll">
+        <picture>
+          <source type="image/webp"
+                  srcset="images/lifecycle-760.webp 760w, images/lifecycle-1000.webp 1000w, images/lifecycle-1400.webp 1400w, images/lifecycle-1840.webp 1840w"
+                  sizes="(max-width: 899px) 940px, 100vw" />
+          <img src="images/lifecycle-1200.jpg"
+               alt="The stages of an AI infrastructure build: land acquisition, site planning, site development, power infrastructure, and AI compute deployment."
+               width="1840" height="853" loading="lazy" decoding="async" />
+        </picture>
+      </div>
+      <figcaption class="plate-hint mono" aria-hidden="true">Drag to see the full sequence &nbsp;→</figcaption>
+    </figure>
 
     <div class="wrap">
 
@@ -2750,7 +2805,7 @@
         '.hero-text > *', '.hero-visual', '.hero-spec',
         '.section-head', '.sub-head',
         '.grid-3 > .card', '.loop > .lstage', '.scale-steps > .step',
-        '.stack-sheet', '.console', '.partner', '.flow', '.faq',
+        '.stack-sheet', '.console', '.partner', '.flow', '.faq', '.plate',
         '.mockup-note', '.sheet-cap', '.contact-info', '.contact-form'
       ];
 
